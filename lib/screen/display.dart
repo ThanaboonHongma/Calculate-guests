@@ -143,13 +143,60 @@ class _DisplayScreenState extends State<DisplayScreen> {
                             ),
                             title: Padding(
                               padding: const EdgeInsets.symmetric(vertical: 8),
-                              child: Text(
-                                document['fname'] + ' ' + document['lname'],
-                                style: const TextStyle(fontSize: 18),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                    child: Text(
+                                      document['fname'] + ' ' + document['lname'],
+                                      style: const TextStyle(fontSize: 16),
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      TextButton(
+                                        onPressed: () => showDialog<String>(
+                                          context: context,
+                                          builder: (BuildContext context) =>
+                                              AlertDialog(
+                                            title: Text(
+                                                'รายละเอียดผู้เข้าพักห้อง ${document['roomnumber']}'),
+                                            content: SizedBox(
+                                              width: double.infinity,
+                                              height: 250,
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                    'เบอร์ติดต่อ: ${document['phone']}\nเข้าพักเมื่อ: ${formattedDate.toString()}\nประเภทการจ่ายเงิน: ${document['typeroom']} \nจำนวนเงิน: ${document['amount']}',
+                                                    style: const TextStyle(
+                                                        fontSize: 18),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            actions: <Widget>[
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    context, 'Cancel'),
+                                                child: const Text('Cancel'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    context, 'OK'),
+                                                child: const Text('OK'),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        child: const Text('Show Detail'),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
-                            subtitle: Text(
-                                'เบอร์ติดต่อ: ${document['phone']}\nเข้าพักเมื่อ: ${formattedDate.toString()}\nประเภทการจ่ายเงิน: ${document['typeroom']} จำนวนเงิน: ${document['amount']}'),
                           ),
                         ),
                       ),
