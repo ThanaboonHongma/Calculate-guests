@@ -1,7 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login101/screen/Home.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: "AIzaSyAl-eUOcxEKdPd1Dvb1BAXZVtgNcezLXNY",
+      appId: "1:851562118435:web:c711085263920435272096",
+      messagingSenderId: "851562118435",
+      projectId: "myloginapplication-b0403",
+    ),
+  );
   runApp(const MyApp());
 }
 

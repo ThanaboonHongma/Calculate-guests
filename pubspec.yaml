@@ -37,10 +37,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   form_field_validator: ^1.1.0
   firebase_core: ^2.15.1
-  firebase_auth: ^4.7.3
   fluttertoast: ^8.2.2
-  cloud_firestore: ^4.8.5
+  firebase_auth: ^4.9.0
+  cloud_firestore: ^4.9.1
   intl: ^0.18.1
+  
   
 dev_dependencies:
   flutter_test:
