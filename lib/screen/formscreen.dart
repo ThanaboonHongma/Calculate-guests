@@ -6,6 +6,7 @@ import 'package:flutter_login101/model/profile.dart';
 import 'package:flutter_login101/screen/Home.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key});
@@ -74,6 +75,9 @@ class _FormScreenState extends State<FormScreen> {
                         style: TextStyle(fontSize: 20),
                       ),
                       TextFormField(
+                        decoration: const InputDecoration(
+                        hintText: "เช่น นายดำรง",                         
+                      ),
                         validator: RequiredValidator(
                             errorText: 'กรุณณาป้อน ชื่อ ผู้เข้าพัก'),
                         onSaved: (String? fname) {
@@ -88,6 +92,9 @@ class _FormScreenState extends State<FormScreen> {
                         style: TextStyle(fontSize: 20),
                       ),
                       TextFormField(
+                        decoration: const InputDecoration(
+                        hintText: "เช่น รุ่งเรือง",                         
+                      ),
                         validator: RequiredValidator(
                             errorText: 'กรุณณาป้อน นามสกุล ผู้เข้าพัก'),
                         onSaved: (String? lname) {
@@ -102,6 +109,10 @@ class _FormScreenState extends State<FormScreen> {
                         style: TextStyle(fontSize: 20),
                       ),
                       TextFormField(
+                        inputFormatters: [MaskTextInputFormatter(mask: "###-###-####")],
+                        decoration: const InputDecoration(
+                        hintText: "เช่น 080-123-4567",                         
+                      ),
                         keyboardType: TextInputType.phone,
                         validator: (phone) {
                           if (phone == null || phone.isEmpty) {
@@ -127,6 +138,9 @@ class _FormScreenState extends State<FormScreen> {
                         style: TextStyle(fontSize: 20),
                       ),
                       TextFormField(
+                        decoration: const InputDecoration(
+                        hintText: "เช่น A1 หรือ D1",                         
+                      ),
                         validator: RequiredValidator(
                             errorText: 'กรุณณาป้อน ห้องที่เข้าพัก ผู้เข้าพัก'),
                         onSaved: (String? roomnumber) {
@@ -141,6 +155,9 @@ class _FormScreenState extends State<FormScreen> {
                         style: TextStyle(fontSize: 20),
                       ),
                       TextFormField(
+                         decoration: const InputDecoration(
+                        hintText: "เช่น โอน หรือ เงินสด",                         
+                      ),
                         validator: RequiredValidator(
                             errorText: 'กรุณณาป้อน ประเภทการชำระเงิน'),
                         onSaved: (String? typeroom) {
@@ -155,6 +172,9 @@ class _FormScreenState extends State<FormScreen> {
                         style: TextStyle(fontSize: 20),
                       ),
                       TextFormField(
+                         decoration: const InputDecoration(
+                        hintText: "เช่น 600",                         
+                      ),
                         keyboardType: TextInputType.number,
                         validator: RequiredValidator(
                             errorText: 'กรุณณาป้อน จำนวนเงิน'),

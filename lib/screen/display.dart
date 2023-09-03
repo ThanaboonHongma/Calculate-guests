@@ -169,7 +169,7 @@ class _DisplayScreenState extends State<DisplayScreen> {
                                               child: Column(
                                                 children: [
                                                   Text(
-                                                    'เบอร์ติดต่อ: ${document['phone']}\nเข้าพักเมื่อ: ${formattedDate.toString()}\nประเภทการจ่ายเงิน: ${document['typeroom']} \nจำนวนเงิน: ${document['amount']}',
+                                                    'เบอร์ติดต่อ: ${document['phone']}\nเข้าพักเมื่อ: ${formattedDate.toString()}\nประเภทการจ่ายเงิน: ${document['typeroom']} \nจำนวนเงิน: ${document['amount']} บาท',
                                                     style: const TextStyle(
                                                         fontSize: 18),
                                                   ),
